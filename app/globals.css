@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cursor-size: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  background: #0E0E0E;
+  color: #F0F0F0;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background: #0E0E0E;
+  color: #F0F0F0;
+}
+
+body {
+  cursor: none;
+}
+
+a,
+button,
+[role="button"] {
+  cursor: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  cursor: none;
+}
+
+/* Fluid Typography */
+.text-fluid-7xl {
+  font-size: clamp(4rem, 7vw, 8rem);
+}
+
+.text-fluid-6xl {
+  font-size: clamp(3rem, 5vw, 6rem);
+}
+
+.text-fluid-5xl {
+  font-size: clamp(2.5rem, 4vw, 5rem);
+}
+
+.text-fluid-4xl {
+  font-size: clamp(2rem, 3vw, 4rem);
+}
+
+.text-fluid-3xl {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+.text-fluid-2xl {
+  font-size: clamp(1.25rem, 2vw, 2rem);
+}
+
+.text-fluid-xl {
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0E0E0E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C6F432;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8d028;
+}
+
