@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { RoundedBox, Environment, Float, ContactShadows } from '@react-three/drei'
 import * as THREE from 'three'
@@ -10,9 +10,15 @@ export default function Robot() {
     <div className="w-full h-[500px] flex items-center justify-center relative z-20 pointer-events-none">
       {/* Canvas needs pointer-events-auto to track mouse */}
       <div className="w-full h-full pointer-events-auto">
-        <Canvas camera={{ position: [0, 0, 6], fov: 35 }}>
-          {/* Lighting for Gloss */}
-          <Environment preset="city" />
+        <Canvas 
+          camera={{ position: [0, 0, 6], fov: 35 }}
+          gl={{ alpha: true, antialias: true }}
+          className="w-full h-full"
+        >
+          <Suspense fallback={null}>
+            {/* Lighting for Gloss */}
+            <Environment preset="city" />
+          </Suspense>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
 
