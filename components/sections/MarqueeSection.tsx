@@ -12,7 +12,7 @@ if (typeof window !== 'undefined') {
 export default function MarqueeSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const marqueeRef = useRef(null)
-  const statsRef = useRef(null)
+  const statsRef = useRef<HTMLDivElement>(null)
   const statsInView = useInView(statsRef, { once: true })
 
   useLayoutEffect(() => {
