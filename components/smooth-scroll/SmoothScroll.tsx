@@ -19,6 +19,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: 2,
       wheelMultiplier: 1,
+      syncTouch: true, // Enable smooth scrolling on mobile/touch devices
     })
 
     // Expose Lenis instance to window for navigation components
