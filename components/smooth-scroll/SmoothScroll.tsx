@@ -8,6 +8,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
+  
+  // Configure ScrollTrigger to ignore mobile resize (address bar hide/show)
+  ScrollTrigger.config({
+    ignoreMobileResize: true,
+  })
 }
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {

@@ -171,7 +171,7 @@ export default function ExperienceTimeline() {
             {/* The Head (Glowing Dot) */}
             <div
               ref={headRef}
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#C6F432] rounded-full shadow-[0_0_20px_#C6F432] translate-y-1/2 z-20"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#C6F432] rounded-full shadow-[0_0_10px_#C6F432] md:shadow-[0_0_20px_#C6F432] translate-y-1/2 z-20"
             />
           </div>
         </div>
@@ -196,7 +196,7 @@ export default function ExperienceTimeline() {
         className="curve-overlay absolute bottom-0 left-0 w-full h-[200px] translate-y-full z-10 overflow-hidden pointer-events-none"
       >
         {/* The Curved Shape - Convex hill with gradient */}
-        <div className="w-[150%] h-full bg-[#F5F5F5] absolute left-1/2 -translate-x-1/2 rounded-b-[100%] scale-x-125 shadow-[0_-20px_60px_rgba(245,245,245,0.3)]" />
+        <div className="w-[150%] h-full bg-[#F5F5F5] absolute left-1/2 -translate-x-1/2 rounded-b-[100%] scale-x-125 shadow-[0_-10px_30px_rgba(245,245,245,0.2)] md:shadow-[0_-20px_60px_rgba(245,245,245,0.3)]" />
       </div>
     </section>
   )
@@ -245,7 +245,7 @@ function TimelineItem({
           ref={nodeRef}
           className={`timeline-node w-4 h-4 rounded-full border-2 border-[#C6F432] transition-all duration-300 ${
             isActive
-              ? 'bg-[#C6F432] shadow-[0_0_15px_#C6F432] scale-125'
+              ? 'bg-[#C6F432] shadow-[0_0_8px_#C6F432] md:shadow-[0_0_15px_#C6F432] scale-125'
               : 'bg-transparent border-gray-600'
           }`}
         />

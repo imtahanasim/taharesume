@@ -81,7 +81,7 @@ export default function MarqueeSeparator() {
         className="curve-overlay absolute bottom-0 left-0 w-full h-[200px] translate-y-full z-10 overflow-hidden pointer-events-none"
       >
         {/* The Curved Shape - Convex hill with gradient effect */}
-        <div className="w-[150%] h-full bg-deep-black absolute left-1/2 -translate-x-1/2 rounded-b-[100%] scale-x-125 shadow-[0_-20px_60px_rgba(0,0,0,0.8)]" />
+        <div className="w-[150%] h-full bg-deep-black absolute left-1/2 -translate-x-1/2 rounded-b-[100%] scale-x-125 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] md:shadow-[0_-20px_60px_rgba(0,0,0,0.8)]" />
         {/* Additional glow effect */}
         <div className="w-[150%] h-full bg-gradient-to-t from-deep-black via-transparent to-transparent absolute left-1/2 -translate-x-1/2 rounded-b-[100%] scale-x-125 opacity-50" />
       </div>

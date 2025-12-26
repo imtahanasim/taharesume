@@ -4,8 +4,45 @@ import { useRef, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { RoundedBox, Environment, Float, ContactShadows } from '@react-three/drei'
 import * as THREE from 'three'
+import { useIsMobile } from '@/hooks/useMediaQuery'
 
 export default function Robot() {
+  const isMobile = useIsMobile()
+
+  // On mobile, render a static image instead of 3D canvas
+  if (isMobile) {
+    return (
+      <div className="w-full h-[500px] flex items-center justify-center relative z-20 pointer-events-none">
+        <div className="relative w-full h-full max-w-md flex items-center justify-center">
+          {/* Static robot placeholder - replace with actual robot image */}
+          <div className="relative w-64 h-64 flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-3xl" />
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Simple CSS-based robot representation for mobile */}
+              <div className="relative">
+                {/* Head */}
+                <div className="w-32 h-24 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl shadow-[0_0_15px_rgba(0,212,255,0.3)] relative">
+                  {/* Face plate */}
+                  <div className="absolute inset-2 bg-black/80 rounded-xl" />
+                  {/* Eyes */}
+                  <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_5px_#00D4FF]" />
+                  <div className="absolute top-1/2 right-1/3 translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_5px_#00D4FF]" />
+                  {/* Antenna */}
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1 h-6 bg-gray-600 rounded-full" />
+                  <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full" />
+                </div>
+                {/* Body */}
+                <div className="absolute top-20 left-1/2 -translate-x-1/2 w-20 h-16 bg-gray-900 rounded-lg" />
+                <div className="absolute top-32 left-1/2 -translate-x-1/2 w-24 h-8 bg-gray-900 rounded-lg" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Desktop: Full 3D Canvas
   return (
     <div className="w-full h-[500px] flex items-center justify-center relative z-20 pointer-events-none">
       {/* Canvas needs pointer-events-auto to track mouse */}

@@ -164,7 +164,7 @@ function ExperienceItem({ item, index }: { item: typeof experience[0]; index: nu
         <div className="md:hidden absolute left-0 top-0 bottom-0 w-0.5 bg-neon-lime" />
         
         {/* The Glowing Node */}
-        <div className="relative w-4 h-4 bg-neon-lime rounded-full z-20 shadow-[0_0_15px_rgba(198,244,50,0.8)]">
+        <div className="relative w-4 h-4 bg-neon-lime rounded-full z-20 shadow-[0_0_8px_rgba(198,244,50,0.6)] md:shadow-[0_0_15px_rgba(198,244,50,0.8)]">
           {/* Optional inner white dot for detail */}
           <div className="absolute inset-0 m-auto w-1 h-1 bg-black rounded-full" />
         </div>

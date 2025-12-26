@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef, useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useIsMobile } from '@/hooks/useMediaQuery'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -13,6 +14,7 @@ export default function TheLine() {
   const pathRef = useRef<SVGPathElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [containerHeight, setContainerHeight] = useState(5000)
+  const isMobile = useIsMobile()
 
   // Calculate container height using ResizeObserver
   useEffect(() => {
@@ -52,6 +54,25 @@ export default function TheLine() {
       strokeDashoffset: pathLength,
     })
 
+    // On mobile, use simpler animation with reduced precision
+    if (isMobile) {
+      const trigger = ScrollTrigger.create({
+        trigger: '#dark-content',
+        start: 'top center',
+        end: 'bottom bottom',
+        scrub: 2, // Less precise scrub on mobile for better performance
+        onUpdate: (self) => {
+          // Direct set instead of gsap.to for better performance on mobile
+          path.style.strokeDashoffset = `${pathLength - (pathLength * self.progress)}`
+        },
+      })
+
+      return () => {
+        trigger.kill()
+      }
+    }
+
+    // Desktop: Full animation with smooth transitions
     const trigger = ScrollTrigger.create({
       trigger: '#dark-content',
       start: 'top center',
@@ -70,7 +91,7 @@ export default function TheLine() {
     return () => {
       trigger.kill()
     }
-  }, [containerHeight])
+  }, [containerHeight, isMobile])
 
   // Create a wrapping path that goes to extreme left, then wraps to extreme right
   // Using normalized coordinates: X is percentage (0-100), Y is percentage of height (0-100)
@@ -119,18 +140,25 @@ export default function TheLine() {
     <div
       ref={containerRef}
       className="absolute inset-0 pointer-events-none z-20 overflow-hidden"
-      style={{ height: `${containerHeight}px` }}
+      style={{ 
+        height: `${containerHeight}px`,
+        transform: 'translateZ(0)', // Hardware acceleration
+        willChange: 'height',
+      }}
     >
       <svg
         ref={svgRef}
         className="absolute top-0 left-0 w-full h-full"
         preserveAspectRatio="none"
         viewBox={`0 0 100 ${containerHeight}`}
-        style={{ height: `${containerHeight}px` }}
+        style={{ 
+          height: `${containerHeight}px`,
+          transform: 'translateZ(0)', // Hardware acceleration
+        }}
       >
         <defs>
           <filter id="glow-line">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+            <feGaussianBlur stdDeviation={isMobile ? "1" : "2"} result="coloredBlur" />
             <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
@@ -141,14 +169,16 @@ export default function TheLine() {
           ref={pathRef}
           d={createPath(containerHeight)}
           stroke="#C6F432"
-          strokeWidth="1.5"
+          strokeWidth={isMobile ? "1" : "1.5"}
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
           filter="url(#glow-line)"
           style={{
-            filter: 'drop-shadow(0px 0px 6px rgba(198, 244, 50, 0.4))',
-            opacity: 0.9,
+            filter: isMobile ? 'none' : 'drop-shadow(0px 0px 6px rgba(198, 244, 50, 0.4))',
+            opacity: isMobile ? 0.8 : 0.9,
+            willChange: 'stroke-dashoffset', // Optimize for animation
+            transform: 'translateZ(0)', // Hardware acceleration
           }}
         />
       </svg>
