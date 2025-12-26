@@ -10,8 +10,8 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'Taha - Full-stack Developer',
-  description: 'Portfolio of Taha - Full-stack Developer & UI/UX Designer',
+  title: 'Taha - BS Computer Science Candidate | Machine Learning & AI',
+  description: 'Portfolio of Muhammad Taha Nasim - BS Computer Science Candidate at FAST-NUCES, passionate about Machine Learning & AI. Full-stack developer and innovative problem solver.',
 }
 
 export default function RootLayout({

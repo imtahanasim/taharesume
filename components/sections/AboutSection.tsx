@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const text = "I'm Taha, a BS Computer Science Candidate at FAST-NUCES, passionate about Machine Learning & AI. I combine technical expertise with innovative solutions to build cutting-edge applications."
+const text = "I&apos;m Taha, a BS Computer Science Candidate at FAST-NUCES, passionate about Machine Learning & AI. I combine technical expertise with innovative solutions to build cutting-edge applications."
 
 const words = text.split(' ')
 

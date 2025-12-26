@@ -36,7 +36,7 @@ export default function HeroSection({ children }: { children?: React.ReactNode }
       {/* Hero Text - On top of the blob */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full">
         <p className="text-fluid-xl font-light text-deep-black mb-6">
-          Hi! i'm Taha
+          Hi! i&apos;m Taha
         </p>
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-fluid-6xl font-bold text-deep-black leading-tight text-center">

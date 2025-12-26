@@ -1,6 +1,6 @@
-# Aziz Portfolio - Full-stack Developer Portfolio
+# Taha Portfolio - BS Computer Science Candidate | Machine Learning & AI
 
-A pixel-perfect, high-performance portfolio website built with Next.js 14, React Three Fiber, GSAP, and Framer Motion.
+A modern, high-performance portfolio website showcasing the work of Muhammad Taha Nasim - BS Computer Science Candidate at FAST-NUCES, passionate about Machine Learning & AI. Built with Next.js 14, React Three Fiber, GSAP, and Framer Motion.
 
 ## Features
 
@@ -12,7 +12,10 @@ A pixel-perfect, high-performance portfolio website built with Next.js 14, React
 - **Project Gallery** - Interactive project cards with hover effects
 - **Experience Timeline** - Sticky dates with alternating layout
 - **3D Robot Mascot** - Interactive robot in footer that follows mouse
-- **Full-screen Navigation** - Animated overlay menu
+- **Full-screen Navigation** - Animated overlay menu with split layout
+- **Coming Soon Page** - Beautiful animated page with blob scene
+- **Background Music** - Ambient background music with button hover sounds
+- **Pakistan Time Display** - Real-time clock with monospace font styling
 
 ## Tech Stack
 
