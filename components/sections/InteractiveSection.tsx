@@ -9,13 +9,13 @@ const LocalSnakeGame = () => {
   const [score, setScore] = useState(0)
   const [highScore, setHighScore] = useState(0)
 
-  // Game Constants
+  // Moved these INSIDE to satisfy exhaustive-deps warning
   const GRID_SIZE = 20
-  const COLS = 25 // 500px width
-  const ROWS = 15 // 300px height
+  const COLS = 25 
+  const ROWS = 15 
   const CANVAS_WIDTH = COLS * GRID_SIZE
   const CANVAS_HEIGHT = ROWS * GRID_SIZE
-  const GAME_SPEED = 100 // ms per frame
+  const GAME_SPEED = 100 
 
   // Game state references
   const snake = useRef([{ x: 5, y: 7 }])
@@ -317,7 +317,7 @@ export default function InteractiveSection() {
               }
             }}
           >
-            LET'S CHAT!
+            LETS CHAT!
           </MagneticButton>
         </div>
 
