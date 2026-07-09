@@ -71,7 +71,7 @@ export default function LeftSidebar() {
         />
         <SocialIcon
           icon={<MessageCircle size={18} />}
-          href="https://wa.me/923345723602"
+          href="https://wa.me/1234567890"
           label="WhatsApp"
         />
         <SocialIcon

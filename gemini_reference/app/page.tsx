@@ -5,7 +5,6 @@ import HelloSection from '@/components/sections/HelloSection'
 import AboutSection from '@/components/sections/AboutSection'
 import MarqueeSection from '@/components/sections/MarqueeSection'
 import Services from '@/components/services/Services'
-import InteractiveSection from '@/components/sections/InteractiveSection'
 import ProjectsSection from '@/components/sections/ProjectsSection'
 import TimelineSection from '@/components/sections/TimelineSection'
 import ExperienceTimeline from '@/components/experience/ExperienceTimeline'
@@ -30,9 +29,9 @@ export default function Home() {
         <AboutSection />
         <MarqueeSection />
         <Services />
-	<InteractiveSection />
         <ProjectsSection />
         <ExperienceTimeline />
+        <TimelineSection />
         <MarqueeSeparator />
         <FooterSection />
       </div>

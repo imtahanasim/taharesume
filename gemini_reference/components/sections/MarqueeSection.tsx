@@ -80,9 +80,9 @@ export default function MarqueeSection() {
       {/* Stats Counter */}
       <div ref={statsRef} className="container mx-auto px-8">
         <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto">
-  		<StatCounter label="Tech Stack" target={15} suffix="+" isInView={statsInView} />
-  		<StatCounter label="Projects" target={10} suffix="+" isInView={statsInView} />
-  		<StatCounter label="Organizations" target={4} suffix="+" isInView={statsInView} />
+          <StatCounter label="Experience" target={30} suffix="+" isInView={statsInView} />
+          <StatCounter label="Projects" target={50} suffix="+" isInView={statsInView} />
+          <StatCounter label="Clients" target={20} suffix="+" isInView={statsInView} />
         </div>
       </div>
     </section>

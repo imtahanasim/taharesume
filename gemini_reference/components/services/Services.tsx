@@ -20,29 +20,30 @@ interface Service {
 const services: Service[] = [
   {
     id: '01',
-    title: 'Systems Architecture',
-    description: 'Architecting low-level systems, scheduling engines, and custom data structures using C++, Python, and POSIX APIs with strict memory management.',
-    icon: Server,
-  },
-  {
-    id: '02',
-    title: 'Full-Stack Development',
-    description: 'Deploying production-grade SaaS and e-commerce architectures using Next.js, React, Node.js, and TypeScript.',
+    title: 'Full Stack Development',
+    description: 'Building scalable and high-performance web applications using Next.js, React, Node.js, and TypeScript, with robust backend architectures.',
     icon: Code2,
   },
   {
+    id: '02',
+    title: 'UI/UX Design & Frontend',
+    description: 'Designing modern, responsive interfaces with Figma, Tailwind CSS, and Framer Motion. Creating intuitive experiences with clean design systems.',
+    icon: Layout,
+  },
+  {
     id: '03',
-    title: 'Machine Learning & AI',
-    description: 'Engineering AI algorithms and neural networks from scratch using pure mathematics and NumPy to solve real-world problems.',
+    title: 'SaaS Platform Development',
+    description: 'Developing end-to-end SaaS solutions with subscription systems, Stripe billing, and multi-tenant management.',
     icon: Globe,
   },
   {
     id: '04',
-    title: 'UI/UX Design',
-    description: 'Simplifying the user journey from low-fidelity sketches to polished designs using tools like Figma, Adobe XD, and Illustrator.',
-    icon: Layout,
+    title: 'API & System Architecture',
+    description: 'Designing maintainable APIs with PostgreSQL, Prisma, and MongoDB. Focusing on performance optimization and security.',
+    icon: Server,
   },
 ]
+
 function ServiceCard({ service }: { service: Service }) {
   const Icon = service.icon
 

@@ -1,0 +1,144 @@
+'use client'
+
+import { useRef, Suspense } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { RoundedBox, Environment, Float, ContactShadows } from '@react-three/drei'
+import * as THREE from 'three'
+import { useIsMobile } from '@/hooks/useMediaQuery'
+
+export default function Robot() {
+  const isMobile = useIsMobile()
+
+  // On mobile, render a static image instead of 3D canvas
+  if (isMobile) {
+    return (
+      <div className="w-full h-[500px] flex items-center justify-center relative z-20 pointer-events-none">
+        <div className="relative w-full h-full max-w-md flex items-center justify-center">
+          {/* Static robot placeholder - replace with actual robot image */}
+          <div className="relative w-64 h-64 flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-3xl" />
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Simple CSS-based robot representation for mobile */}
+              <div className="relative">
+                {/* Head */}
+                <div className="w-32 h-24 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl shadow-[0_0_15px_rgba(0,212,255,0.3)] relative">
+                  {/* Face plate */}
+                  <div className="absolute inset-2 bg-black/80 rounded-xl" />
+                  {/* Eyes */}
+                  <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_5px_#00D4FF]" />
+                  <div className="absolute top-1/2 right-1/3 translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-400 rounded-full shadow-[0_0_5px_#00D4FF]" />
+                  {/* Antenna */}
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1 h-6 bg-gray-600 rounded-full" />
+                  <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full" />
+                </div>
+                {/* Body */}
+                <div className="absolute top-20 left-1/2 -translate-x-1/2 w-20 h-16 bg-gray-900 rounded-lg" />
+                <div className="absolute top-32 left-1/2 -translate-x-1/2 w-24 h-8 bg-gray-900 rounded-lg" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Desktop: Full 3D Canvas
+  return (
+    <div className="w-full h-[500px] flex items-center justify-center relative z-20 pointer-events-none">
+      {/* Canvas needs pointer-events-auto to track mouse */}
+      <div className="w-full h-full pointer-events-auto">
+        <Canvas 
+          camera={{ position: [0, 0, 6], fov: 35 }}
+          gl={{ alpha: true, antialias: true }}
+          className="w-full h-full"
+        >
+          <Suspense fallback={null}>
+            {/* Lighting for Gloss */}
+            <Environment preset="city" />
+          </Suspense>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+
+          {/* Floating Animation Wrapper */}
+          <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+            <RobotModel />
+          </Float>
+
+          {/* Ground Shadow */}
+          <ContactShadows position={[0, -2, 0]} opacity={0.5} scale={10} blur={2.5} far={4} />
+        </Canvas>
+      </div>
+    </div>
+  )
+}
+
+function RobotModel() {
+  const headRef = useRef<THREE.Group>(null)
+
+  useFrame((state) => {
+    if (headRef.current) {
+      // Smooth Mouse Tracking
+      const x = state.pointer.x * 0.5 // Limit rotation range
+      const y = state.pointer.y * 0.4
+
+      headRef.current.rotation.y = THREE.MathUtils.lerp(headRef.current.rotation.y, x, 0.1)
+      headRef.current.rotation.x = THREE.MathUtils.lerp(headRef.current.rotation.x, -y, 0.1)
+    }
+  })
+
+  return (
+    <group position={[0, 0.5, 0]}>
+      {/* --- ANIMATED HEAD --- */}
+      <group ref={headRef}>
+        {/* Cool Cyan/Blue Helmet */}
+        <RoundedBox args={[1.6, 1.1, 0.9]} radius={0.3} smoothness={8}>
+          <meshPhysicalMaterial
+            color="#00D4FF" // Cool Cyan/Blue
+            roughness={0.15}
+            metalness={0.9}
+            clearcoat={1.2} // Extra shiny polish
+            clearcoatRoughness={0.05}
+            emissive="#001122"
+            emissiveIntensity={0.2}
+          />
+        </RoundedBox>
+
+        {/* Black Face Plate */}
+        <RoundedBox args={[1.3, 0.75, 0.1]} radius={0.15} position={[0, 0, 0.46]}>
+          <meshStandardMaterial color="#050505" roughness={0.1} />
+        </RoundedBox>
+
+        {/* Glowing Cyan Eyes */}
+        <mesh position={[-0.3, 0.05, 0.52]}>
+          <sphereGeometry args={[0.14, 32, 32]} />
+          <meshBasicMaterial color="#00D4FF" />
+        </mesh>
+        <mesh position={[0.3, 0.05, 0.52]}>
+          <sphereGeometry args={[0.14, 32, 32]} />
+          <meshBasicMaterial color="#00D4FF" />
+        </mesh>
+
+        {/* Antenna Detail */}
+        <mesh position={[0, 0.7, 0]}>
+          <cylinderGeometry args={[0.02, 0.02, 0.3]} />
+          <meshStandardMaterial color="#222" />
+        </mesh>
+        <mesh position={[0, 0.85, 0]}>
+          <sphereGeometry args={[0.06]} />
+          <meshStandardMaterial color="#666" />
+        </mesh>
+      </group>
+
+      {/* --- STATIC BODY --- */}
+      <group position={[0, -0.9, 0]}>
+        <mesh position={[0, 0.3, 0]}>
+          <cylinderGeometry args={[0.15, 0.15, 0.4]} />
+          <meshStandardMaterial color="#111" />
+        </mesh>
+        <RoundedBox args={[0.8, 0.4, 0.5]} radius={0.1} position={[0, -0.1, 0]}>
+          <meshStandardMaterial color="#111" />
+        </RoundedBox>
+      </group>
+    </group>
+  )
+}

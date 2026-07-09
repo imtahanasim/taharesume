@@ -18,98 +18,30 @@ interface ProjectProps {
   tags: string[]
   image: string
   year: string
-  description: string // Added this line
 }
 
 const projects: ProjectProps[] = [
   {
-    title: 'CityMind',
-    category: '3D Digital Twin Urban Intelligence System',
-    tags: ['Python', 'React', 'TypeScript', 'Three.js'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?q=80&w=2564&auto=format&fit=crop', // 3D/Smart City aesthetic
-    description: "Built a real-time 3D dashboard by engineering core AI algorithms from scratch, including a Constraint Satisfaction solver and Genetic Algorithms for dynamic risk analysis.",
-  },
-  {
-    title: 'Chrono Rift',
-    category: 'POSIX Scheduling Engine',
-    tags: ['C++', 'Linux', 'SFML', 'Docker'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2564&auto=format&fit=crop',
-  description: "Architected a multi-process RPG orchestrated via fork() and execvp(), eliminating standard pipes by using POSIX Shared Memory and Semaphores.",
-  },
-  {
-    title: 'Lumina Workspace',
-    category: 'Unified Desktop Ecosystem',
-    tags: ['React', 'Electron', 'JavaFX', 'SQL Server'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?q=80&w=2564&auto=format&fit=crop', // Clean workspace aesthetic
-    description: "Developed a dual-engine productivity app featuring a vector graphics canvas and advanced document suite, backed by a hybrid relational/document data strategy.",
-  },
-  {
-    title: 'Neural Network from Scratch',
-    category: 'Deep Learning Framework',
-    tags: ['Python', 'Math', 'NumPy'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2564&auto=format&fit=crop', // AI/Neural Network aesthetic
-    description: "Engineered a deep learning framework using pure NumPy and manual backpropagation, achieving 98.6% accuracy on MNIST without ML libraries.",
-  },
-  {
-    title: 'Smart City Management System',
-    category: 'C++ Data Structures',
-    tags: ['C++', 'Algorithms', 'Manual Memory'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2564&auto=format&fit=crop', // Infrastructure aesthetic
-    description: "Hand-coded data containers and Dijkstra's algorithm, strictly banning the STL to guarantee O(1) and O(log n) memory efficiency.",
-  },
-  {
-    title: 'Ivor Paine Memorial Hospital',
-    category: 'Relational Database',
-    tags: ['SQL Server', 'PHP', 'Data Modeling'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2564&auto=format&fit=crop', // Hospital/Medical aesthetic
-    description: "Led end-to-end database development, mapping complex manual hospital records into a fully normalized relational schema.",
-  },
-  {
-    title: 'Pakistan Economic Observatory',
-    category: 'Real-time Network Analysis',
-    tags: ['React 19', 'TypeScript', 'Canvas API'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2564&auto=format&fit=crop', // Financial/Data aesthetic
-    description: "Created a real-time network analysis tool with a 60FPS force-directed physics engine to visualize market price shocks across 17 cities.",
-  },
-  {
-    title: 'High Jump Mario Engine',
-    category: 'x86 Assembly Game Engine',
-    tags: ['Assembly (MASM)', 'Low-level'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2564&auto=format&fit=crop', // Retro gaming aesthetic
-    description: "Wrote a 16,000-line game engine entirely in Assembly, interacting directly with CPU registers, hardware interrupts, and custom binary serialization.",
-  },
-  {
-    title: 'Sonic Class Heroes',
-    category: 'Custom Physics Engine',
-    tags: ['C++', 'OOP', 'Memory Management'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2564&auto=format&fit=crop',
-    description: "Developed a custom physics engine simulating momentum, gravity, and collisions, utilizing dynamic memory management and strict OOP design.",
-  },
-  {
-    title: 'Guzel by Printmall & Zybaaish',
-    category: 'E-Commerce Architecture',
-    tags: ['React.js', 'Node.js', 'Full-Stack'],
-    year: '2024',
-    image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2564&auto=format&fit=crop', // E-commerce aesthetic
-    description: "Deployed production e-commerce architectures featuring secure authentication, dynamic catalogs, and high-fidelity, responsive UI.",
-  },
-  {
-    title: 'Portify',
+    title: 'VexLogic AI',
     category: 'SaaS Platform',
-    tags: ['Next.js', 'Web Development'],
+    tags: ['AI', 'Next.js', 'WebGL'],
+    year: '2025',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
+  },
+  {
+    title: 'Neo Bank',
+    category: 'Fintech App',
+    tags: ['Mobile', 'Finance', 'UX'],
     year: '2024',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2564&auto=format&fit=crop', // Web UI aesthetic
-    description: "Built a dynamic portfolio generation tool leveraging modular component design for instant, layout-customized web identity deployment.",
-  }
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop',
+  },
+  {
+    title: 'Design System Pro',
+    category: 'Design Platform',
+    tags: ['Design', 'UI/UX', 'React'],
+    year: '2024',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1974&auto=format&fit=crop',
+  },
 ]
 
 export default function ProjectsSection() {
@@ -303,13 +235,8 @@ function ProjectCard({ project }: { project: ProjectProps }) {
         </h3>
 
         {/* Subtitle/Category */}
-        <p className="text-gray-400 text-lg md:text-xl font-medium mb-3">
+        <p className="text-gray-400 text-lg md:text-xl font-medium">
           {project.category} — {project.year}
-        </p>
-        
-        {/* Description - Fades in on hover */}
-        <p className="text-gray-300 text-sm md:text-base max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 line-clamp-2">
-          {project.description}
         </p>
       </div>
     </div>

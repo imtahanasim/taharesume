@@ -19,47 +19,27 @@ interface ExperienceItem {
 const experienceData: ExperienceItem[] = [
   {
     id: 1,
-    role: 'Front-End & AI Intern',
-    company: 'PreserveMy.World x TechRealm',
-    period: 'Jun 2026 - Present',
-    description: 'Utilizing AI, 3D reconstruction, and front-end development tools to document and preserve cultural heritage through real-world digital projects.',
+    role: 'Senior Frontend Engineer',
+    company: 'Tech Giant Corp',
+    period: '2024',
+    description: 'Leading the design system team and rebuilding the core product dashboard using Next.js 14.',
   },
   {
     id: 2,
-    role: 'Project Management Intern',
-    company: 'Junior Jinnah Trust (JJT)',
-    period: 'Jul 2026 - Present',
-    description: 'Designing and executing interactive educational programs for underprivileged youth, leveraging cross-functional collaboration to streamline program delivery and boost student retention.',
+    role: 'Creative Developer',
+    company: 'Digital Agency X',
+    period: '2022',
+    description: 'Built award-winning immersive web experiences for luxury brands using WebGL and GSAP.',
   },
   {
     id: 3,
-    role: 'Executive Member',
-    company: 'FAST Outreach and Engagement Society (OES)',
-    period: 'Oct 2025 - Present',
-    description: 'Spearheaded university branding initiatives and orchestrated large-scale campus recruitment drives to connect with external corporate stakeholders.',
+    role: 'UI/UX Designer',
+    company: 'Freelance',
+    period: '2020',
+    description: 'Designed mobile applications and design systems for early-stage fintech startups.',
   },
-  {
-    id: 4,
-    role: 'Member & Event Organizer',
-    company: 'FAST Literary and Debating Society (LADS)',
-    period: 'Oct 2025 - Present',
-    description: 'Collaborated cross-functionally to curate debating tournaments, managing end-to-end event workflows and participant logistics.',
-  },
-  {
-    id: 5,
-    role: 'AI Indus Week Volunteer / Usher',
-    company: 'Ministry of IT & Telecom (MoIT)',
-    period: 'Mar 2026',
-    description: 'Managed crowd dynamics and venue logistics for major AI summit sessions, ensuring a seamless experience for VIPs and attendees.',
-  },
-  {
-    id: 6,
-    role: 'Volunteer',
-    company: 'National Education Foundation',
-    period: 'Aug 2025 - Dec 2025',
-    description: 'Boosted academic engagement and comprehension by introducing dynamic, hands-on activities and creative workshops, fostering an inclusive environment that simplified complex concepts.',
-  }
 ]
+
 export default function ExperienceTimeline() {
   const containerRef = useRef<HTMLElement>(null)
   const lineRef = useRef<HTMLDivElement>(null)

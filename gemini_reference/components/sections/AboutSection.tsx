@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const text = "I'm Taha, a Software Engineer and BS Computer Science Candidate at FAST-NUCES. I have a unique ability to bridge low-level systems architecture with modern full-stack web development. I'm passionate about solving real-world problems through Machine Learning, teaching machines to learn from data while building seamless, user-focused web experiences."
+const text = "I&apos;m Taha, a BS Computer Science Candidate at FAST-NUCES, passionate about Machine Learning & AI. I combine technical expertise with innovative solutions to build cutting-edge applications."
 
 const words = text.split(' ')
 
@@ -96,19 +96,19 @@ export default function AboutSection() {
       </div>
 
       {/* The actual content with dark background */}
-      <div ref={contentRef} className="relative z-10 bg-deep-black pt-32 pb-8">
+      <div ref={contentRef} className="relative z-10 bg-deep-black pt-32 pb-64">
         <div className="container mx-auto px-8 py-24">
           {/* Portrait Section - Above the text */}
           <div className="mb-16">
             <PortraitReveal />
           </div>
 
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.p
-              className="text-fluid-xl text-white/80 leading-relaxed"
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-            >
+          <div className="max-w-3xl">
+          <motion.p
+            className="text-fluid-xl text-white/80 leading-relaxed"
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+          >
             {words.map((word, index) => (
               <motion.span
                 key={index}
@@ -129,15 +129,15 @@ export default function AboutSection() {
             ))}
           </motion.p>
 
-          <div className="mt-12 flex justify-center">
-              <Magnetic>
-                <a
-                  href="/coming-soon"
-                  onMouseEnter={() => {
-                    setVariant('hover')
-                  }}
-                  onMouseLeave={() => setVariant('default')}
-                >
+          <div className="mt-12">
+            <Magnetic>
+              <a
+                href="/coming-soon"
+                onMouseEnter={() => {
+                  setVariant('hover')
+                }}
+                onMouseLeave={() => setVariant('default')}
+              >
                 <PillButton
                   onMouseEnter={() => {
                     setVariant('hover')
