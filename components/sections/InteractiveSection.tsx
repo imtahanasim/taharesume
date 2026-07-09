@@ -25,8 +25,8 @@ const LocalSnakeGame = () => {
   const gameLoopRef = useRef<NodeJS.Timeout | null>(null)
 
   const generateFood = useCallback(() => {
-    let newFood
-    while (true) {
+  let newFood: { x: number; y: number }; // Explicitly typing the variable
+  while (true) {
       newFood = {
         x: Math.floor(Math.random() * COLS),
         y: Math.floor(Math.random() * ROWS),
