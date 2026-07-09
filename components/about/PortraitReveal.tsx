@@ -42,8 +42,8 @@ export default function PortraitReveal() {
           y: '0%', // Start centered
         },
         {
-          scale: 1.8, // Zoom IN significantly as you scroll
-          y: '-15%', // Pull up slightly for better framing
+          scale: 1.2, // Reduced zoom to prevent excessive cropping
+          y: '0%', // Removed vertical parallax to keep face in frame
           ease: 'none', // Linear for parallax
           scrollTrigger: {
             trigger: containerRef.current,
@@ -64,14 +64,14 @@ export default function PortraitReveal() {
       ref={containerRef}
       className="relative w-full max-w-5xl mx-auto aspect-[3/4] md:aspect-[4/3] overflow-hidden rounded-xl bg-gray-900 z-0"
     >
-      <div ref={imageRef} className="relative w-full h-[120%] -top-[10%]">
+      <div ref={imageRef} className="relative w-full h-full top-0">
         <Image
           src="/me.jpeg"
           alt="Portrait"
           fill
           className="object-cover"
           style={{
-            filter: 'grayscale(100%)',
+            objectPosition: 'center 0%', // Start from the absolute top of the image
           }}
           sizes="(max-width: 768px) 100vw, 90vw"
           priority
